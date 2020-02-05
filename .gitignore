@@ -12,3 +12,5 @@ jdt.ls-java-project
 .history
 .Trash-*
 .env
+dist
+target

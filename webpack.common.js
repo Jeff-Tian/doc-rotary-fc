@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-    entry:  './src/index.ts',
+    entry: './src/index.ts',
     target: 'node',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -9,6 +9,7 @@ module.exports = {
         libraryTarget: 'umd'
     },
     module: {
+        noParse: /iltorb/,
         rules: [{
             test: /\.ts$/,
             exclude: /node_modules/,

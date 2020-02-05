@@ -31,14 +31,16 @@ export const initializer = (context, callback) => {
   }
 
   co(store.get('lo.tar.br', binPath)).then(function (val) {
-    callback(null, val)
-  }).catch(function (err) {
-    callback(err)
-  });
+    // callback(null, val)
+    co(store.get('example.docx', '/tmp/example.docx'))
+      .then(function (res) {
+        callback(null, [val, res])
+      }).catch(callback)
+  }).catch(callback);
 };
 
 export const handler = function (event, context, callback) {
-  execSync('cp -f ./example.docx /tmp/example.docx');
+  // execSync('cp -f /code/example.docx /tmp/example.docx');
 
   convertFileToPDF('/tmp/example.docx', binPath)
     .then(() => {
@@ -48,7 +50,7 @@ export const handler = function (event, context, callback) {
         .catch((err) => callback(err));
     })
     .catch((e) => {
-      console.log('convert success.');
+      console.log('convert fail.', e);
       callback(e, 'fail')
     });
 };

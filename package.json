@@ -4,8 +4,9 @@
   "scripts": {
     "test": "mocha --require espower-typescript/guess \"test/**/*.test.ts\" --timeout 60000",
     "dev": "webpack --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
-    "local": "fun local invoke demo/demo"
+    "build": "webpack --config webpack.prod.js&&cat dist/index.js | clip.exe",
+    "local": "fun local invoke demo/demo",
+    "tsc": "tsc"
   },
   "description": "",
   "devDependencies": {

@@ -15,7 +15,7 @@ const binPath = '/tmp/lo.tar.br';
 
 var store;
 
-module.exports.initializer = (context, callback) => {
+export const initializer = (context, callback) => {
   store = new OSS({
     region: `oss-${process.env.ALIBABA_CLOUD_DEFAULT_REGION}`,
     bucket: process.env.OSS_BUCKET,
@@ -38,7 +38,7 @@ module.exports.initializer = (context, callback) => {
 };
 
 export const handler = function (event, context, callback) {
-  execSync('cp -f /code/example.docx /tmp/example.docx');
+  execSync('cp -f ./example.docx /tmp/example.docx');
 
   convertFileToPDF('/tmp/example.docx', binPath)
     .then(() => {

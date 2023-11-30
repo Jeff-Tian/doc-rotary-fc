@@ -27,7 +27,7 @@
   "author": "jeff.tian@outlook.com",
   "license": "MIT",
   "dependencies": {
-    "ali-oss": "^6.5.1",
+    "ali-oss": "^6.18.0",
     "co": "^4.6.0",
     "dotenv": "^8.2.0",
     "fc-libreoffice": "https://gitee.com/zizhujy/fc-libreoffice.git"
